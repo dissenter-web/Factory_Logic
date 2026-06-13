@@ -10,9 +10,6 @@ def show_faults():
     for code, description in faults.items():
         print(f"{code} - {description}")
 
-        for inner_code, inner_description in description.items():
-            print(f"   {inner_code} - {inner_description}")
-
 while True:
     print("\n1. Показать ошибки")
     print("2. Найти ошибку")
