@@ -7,8 +7,22 @@ def find_fault(code):
     return faults.get(code)
 
 def show_faults():
-    for code, description in faults.items():
-        print(f"{code} - {description}")
+    for fault_code, fault_data in faults.items():
+        print(f"\nКод ошибки: {fault_code} - {fault_data.get('name_en', 'Название ошибки не указано')}")
+        print(f"Название: {fault_data.get('name_ru', 'Название отсутствует')}")
+        print(f"Описание: {fault_data.get('description', 'Описание отсутствует')}")
+
+        print("Что проверить:")
+        checks = fault_data.get('check', 'Проверки отсутствуют')
+
+        for check in checks:
+            print(f"- {check}")
+        
+        print("Что сделать:")
+        actions = fault_data.get('action', 'Действия отсутствуют')
+
+        for action in actions:
+            print(f"- {action}")
 
 while True:
     print("\n1. Показать ошибки")
