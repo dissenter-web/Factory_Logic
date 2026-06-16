@@ -53,7 +53,7 @@ while True:
 
     elif choice == "2":
         fault_code = input("Введите код ошибки: ")
-        fault_data = find_fault(faults, fault_code)
+        fault_data = find_fault(faults,fault_code)
         print_fault(fault_code, fault_data)
 
     elif choice == "3":
