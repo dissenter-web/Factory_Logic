@@ -1,4 +1,5 @@
 from services import faults_service
+from formatters.fault_formatter import format_fault, format_all_faults
 
 def run_cli():
 
@@ -11,12 +12,12 @@ def run_cli():
 
         if choice == "1":
             all_faults = faults_service.get_all_faults()
-            faults_service.print_all_faults(all_faults)
+            print(format_all_faults(all_faults))
 
         elif choice == "2":
             fault_code = input("Введите код ошибки: ")
-            fault_data = faults_service.find_fault(faults_service.faults,fault_code)
-            faults_service.print_fault(fault_code, fault_data)
+            fault_data = faults_service.find_fault(fault_code)
+            print(format_fault(fault_code.upper(), fault_data))
 
         elif choice == "3":
             break
