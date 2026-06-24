@@ -1,8 +1,9 @@
 import time
 import requests
+from app.config import MAX_BOT_TOKEN
 
 
-TOKEN = "f9LHodD0cOJ674VwsfSwrD-vIYytZ2nSC-z__7kz2AjedCunVne9PGJUAuADEiCvzzKyvsO-KRRtbECe1BsX"
+TOKEN = MAX_BOT_TOKEN
 
 API_URL = "https://platform-api.max.ru"
 

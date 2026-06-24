@@ -9,16 +9,20 @@ def format_fault(fault_code, fault_data):
     result.append(f"Описание: {fault_data.get('description', 'Описание отсутствует')}")
 
     result.append("Что проверить:")
-    checks = fault_data.get('check', ['Проверки отсутствуют'])
+    checks = fault_data.get('check', [])
+    if checks:
+        for check in checks:
+            result.append(f"- {check}")
+    else:
+        result.append('- Проверки отсутствуют')
 
-    for check in checks:
-        result.append(f"- {check}")
-        
     result.append("Что сделать:")
-    actions = fault_data.get('action', ['Действия отсутствуют'])
-
-    for action in actions:
-        result.append(f"- {action}")
+    actions = fault_data.get('action', [])
+    if actions:
+        for action in actions:
+            result.append(f"- {action}")
+    else:
+        result.append('- Действия отсутствуют')
 
     return "\n".join(result)
 

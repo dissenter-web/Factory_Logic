@@ -1,4 +1,4 @@
-from interfaces.cli.main_cli import run_cli
+from app.interfaces.cli.main_cli import run_cli
 
 def main():
     run_cli()
