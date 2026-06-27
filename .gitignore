@@ -3,3 +3,4 @@ venv/
 __pycache__/
 *.pyc
 .env
+DEV_PLAN.local.md
