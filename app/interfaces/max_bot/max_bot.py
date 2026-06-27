@@ -62,6 +62,36 @@ def echo():
                         json={"text": message_text}
                     )
                 
+def send_start_menu(chat_id):
+    request_api(
+        "POST",
+        "/messages",
+        params={"chat_id": chat_id},
+        json={
+            "text": (
+                "FactoryLogic — справочник для электроперсонала.\n\n"
+                "Пока доступен поиск ошибок PowerFlex 525.\n"
+                "Нажми кнопку ниже, затем введи код ошибки, например F012."
+            ),
+            "attachments": [
+                {
+                    "type": "inline_keyboard",
+                    "payload": {
+                        "buttons": [
+                            [
+                                {
+                                    "type": "callback",
+                                    "text": "PowerFlex 525",
+                                    "payload": "pf525"
+                                }
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    )
+                
 def faults_handling():
     faults = load_faults()
 
@@ -80,6 +110,13 @@ def faults_handling():
 
         if updates:
             update = updates[0]
+
+            update_type = update["update_type"]
+
+            if update_type == "bot_started":
+                chat_id = update["chat_id"]
+                send_start_menu(chat_id)
+                continue
 
             if "message" not in update:
                 continue
