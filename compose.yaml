@@ -1,0 +1,10 @@
+services:
+  bot:
+    build:
+      context: .
+    image: factory_logic:latest
+    container_name: factory_logic_bot
+    env_file:
+      - .env
+    restart: unless-stopped
+    command: ["python", "-m", "app.interfaces.max_bot.max_bot"]
