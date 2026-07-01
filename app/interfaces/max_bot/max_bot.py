@@ -69,9 +69,14 @@ def send_start_menu(chat_id):
         params={"chat_id": chat_id},
         json={
             "text": (
-                "FactoryLogic — справочник для электроперсонала.\n\n"
-                "Пока доступен поиск ошибок PowerFlex 525.\n"
-                "Нажми кнопку ниже, затем введи код ошибки, например F012."
+                "⚙️ FactoryLogic\n\n"
+                "Cправочник для инженеров группы по ремонту электрооборудования.\n\n"
+                "Здесь можно быстро найти ошибки VFD,\n"
+                "параметры, инструкции, стандартные \n"
+                "рабочие процедуры.\n\n"
+                "👇 Выберите нужный раздел.\n\n"
+                "💻 *Разделы VFD, СРП и номера ЗИП находятся в стадии разработки.\n"
+                "Поиск ошибок пока доступен только по Allen Bradley - PF525. Для тестирования бота введите код ошибки, например f005."
             ),
             "attachments": [
                 {
@@ -81,8 +86,25 @@ def send_start_menu(chat_id):
                             [
                                 {
                                     "type": "callback",
-                                    "text": "PowerFlex 525",
-                                    "payload": "pf525"
+                                    "text": "⚡ VFD",
+                                    "payload": "vfd_menu"
+                                },
+                                {
+                                    "type": "callback",
+                                    "text": "📜 СРП",
+                                    "payload": "srp_menu"
+                                }
+                            ],
+                            [
+                                {
+                                    "type": "callback",
+                                    "text": "🛠️ Номера ЗИП",
+                                    "payload": "zip_menu"
+                                },
+                                {
+                                    "type": "callback",
+                                    "text": "ℹ️ О проекте",
+                                    "payload": "about_project"
                                 }
                             ]
                         ]
