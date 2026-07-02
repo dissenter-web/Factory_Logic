@@ -51,25 +51,43 @@ tests/
 
 ## Установка
 
-Создать виртуальное окружение:
+### Windows (PowerShell)
 
-```bash
+**Создание виртуального окружения**
+
+```powershell
 python -m venv .venv
 ```
 
-Активировать:
+**Активация виртуального окружения**
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+**Установка зависимостей**
+
+```powershell
+pip install -r requirements.txt
+```
+
+---
+
+### Linux
+
+**Создание виртуального окружения**
+
+```bash
+python3 -m venv .venv
+```
+
+**Активация виртуального окружения**
 
 ```bash
 source .venv/bin/activate
 ```
 
-Обновить pip:
-
-```bash
-python -m pip install --upgrade pip
-```
-
-Установить зависимости:
+**Установка зависимостей**
 
 ```bash
 pip install -r requirements.txt
