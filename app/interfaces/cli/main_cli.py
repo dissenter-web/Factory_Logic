@@ -1,5 +1,6 @@
 from app.services import faults_service, spare_parts_service
 from app.formatters.fault_formatter import format_fault, format_all_faults
+from app.formatters.spare_parts_formatter import format_spare_part
 from app.repositories import json_repository
 
 def run_cli():
@@ -65,8 +66,7 @@ def run_cli():
             list_spare_parts = json_repository.load_spare_parts_data(data_type)
             spare_part = spare_parts_service.normalize_spare_parts(input("Введите название запчасти: "))
             spare_part_data = spare_parts_service.find_spare_part(list_spare_parts, spare_part)
-            print(spare_part_data)
-
+            print(format_spare_part(spare_part, spare_part_data))
 
         elif choice == "3":
             break
