@@ -66,7 +66,7 @@ def run_cli():
             list_spare_parts = json_repository.load_spare_parts_data(data_type)
             spare_part = spare_parts_service.normalize_spare_parts(input("Введите название запчасти: "))
             spare_part_data = spare_parts_service.find_spare_part(list_spare_parts, spare_part)
-            print(format_spare_part(spare_part, spare_part_data))
+            print(*format_spare_part(spare_part, spare_part_data))
 
         elif choice == "3":
             break

@@ -1,9 +1,10 @@
 import time
 import requests
 from app.config import MAX_BOT_TOKEN
-from app.services import faults_service
+from app.services import faults_service, spare_parts_service
 from app.formatters.fault_formatter import format_fault, format_all_faults
-from app.repositories.json_repository import load_faults
+from app.formatters.spare_parts_formatter import format_spare_part
+from app.repositories.json_repository import load_vfd_data, load_spare_parts_data
 
 API_URL = "https://platform-api.max.ru"
 
@@ -12,6 +13,9 @@ HEADERS = {
     "Content-Type": "application/json",
 }
 
+manufacturer = "allen_bradley"
+model = "pf525"
+data_type = "faults"
 
 def request_api(method, path, params=None, json=None):
     response = requests.request(
@@ -115,7 +119,7 @@ def send_start_menu(chat_id):
     )
                 
 def faults_handling():
-    faults = load_faults()
+    faults = load_vfd_data(manufacturer, model, data_type)
 
     marker = None
 
