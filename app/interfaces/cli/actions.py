@@ -13,4 +13,4 @@ def get_all_faults_action(list_faults):
 
 def find_spare_part_action(spare_part, list_spare_parts):
     spare_part_data = find_spare_part(list_spare_parts, spare_part)
-    print(*format_spare_part(spare_part, spare_part_data))
+    print(format_spare_part(spare_part, spare_part_data))

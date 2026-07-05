@@ -1,12 +1,19 @@
-def normalize_spare_parts(spare_part):
+def normalize_spare_parts(spare_part: str) -> str:
     return spare_part.strip().lower()
 
-def find_spare_part(list_spare_parts, spare_part):
-    found_spare_parts = []
-    spare_part = normalize_spare_parts(spare_part)
 
-    for x in list_spare_parts:
-        if spare_part in list_spare_parts[x]["name"].lower():
-            found_spare_parts.append(list_spare_parts[x])
+def find_spare_part(list_spare_parts: dict, spare_part: str) -> list[dict]:
+    query = normalize_spare_parts(spare_part)
+
+    if not query:
+        return []
+
+    found_spare_parts = []
+
+    for part_data in list_spare_parts.values():
+        name = part_data.get("name", "").lower()
+
+        if query in name:
+            found_spare_parts.append(part_data)
 
     return found_spare_parts
