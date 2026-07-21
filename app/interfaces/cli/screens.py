@@ -103,7 +103,7 @@ def ab_pf753_screen():
 def ab_pf160_screen():
     return model_vfd_ab_screen("pf160", "ab_pf160_menu")
 
-#Общий кран моделей приводов Allen Bradley
+#Общий  экран моделей приводов Allen Bradley
 def model_vfd_ab_screen(model: str, current_screen: str):
     print(f"\n=== Allen-Bradley {model.upper()} ===")
     print("1. Показать все ошибки")

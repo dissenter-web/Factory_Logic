@@ -1,3 +1,6 @@
+from app.interfaces.max_bot.renderer import render_screen
+
+
 class Polling:
     def __init__(self, client, handler):
         self.client = client
@@ -8,13 +11,19 @@ class Polling:
         data = self.client.get_updates(self.marker)
 
         for update in data["updates"]:
-            self.handler.handle_update(update)
+            screen = self.handler.handle_update(update)
+
+            if screen is None:
+                continue
+
+            if update.get("update_type") == "bot_started":
+                chat_id = update["chat_id"]
+                message = render_screen(screen)
+                self.client.send_message(chat_id, message)
+
+            elif update.get("update_type") == "message_callback":
+                callback_id = update["callback"]["callback_id"]
+                message = render_screen(screen)
+                self.client.answer_callback(callback_id, message)
 
         self.marker = data["marker"]
-
-        
-
-        screen = self.handler.handle_update(update)
-
-        if screen is not None:
-            print(screen.text)
