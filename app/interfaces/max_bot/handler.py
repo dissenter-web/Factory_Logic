@@ -18,10 +18,9 @@ class Handler:
 
         if update_type == "message_callback":
             payload = update["callback"]["payload"]
+            user_id = update["callback"]["user"]["user_id"]
 
             if payload == "pf_525_fault_search":
-                user_id = update["callback"]["user"]["user_id"]
-
                 self.user_state.set(
                     user_id,
                     {
@@ -32,6 +31,8 @@ class Handler:
                 )
 
                 return self.navigator.get_screen("pf_525_fault_input")
+
+            self.user_state.clear(user_id)
 
             return self.navigator.get_screen(payload)
         
