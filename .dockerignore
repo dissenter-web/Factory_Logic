@@ -6,14 +6,21 @@ venv
 env
 
 __pycache__
-*.pyc
+*.py[cod]
 
 .pytest_cache
 .mypy_cache
 .ruff_cache
 
 .env
+.env.*
+!.env.example
+
 *.log
 
 README.md
 tests
+
+.DS_Store
+.idea
+.vscode

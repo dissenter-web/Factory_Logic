@@ -1,6 +1,8 @@
-.venv/
-venv/
-__pycache__/
-*.pyc
 .env
-DEV_PLAN.local.md
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.log
