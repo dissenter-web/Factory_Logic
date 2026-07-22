@@ -26,4 +26,9 @@ class Polling:
                 message = render_screen(screen)
                 self.client.answer_callback(callback_id, message)
 
+            elif update.get("update_type") == "message_created":
+                chat_id = update["message"]["recipient"]["chat_id"]
+                message = render_screen(screen)
+                self.client.send_message(chat_id, message)
+
         self.marker = data["marker"]

@@ -69,6 +69,7 @@ VFD_SCREEN = Screen(
     ],
 )
 
+#Экраны AllenBradley
 AB_MENU_SCREEN = Screen(
     title="ab_menu",
     text=(
@@ -82,6 +83,7 @@ AB_MENU_SCREEN = Screen(
     ],
 )
 
+#Экраны AllenBradley PowerFlex 525
 AB_PF525_SCREEN = Screen(
     title="ab_pf525",
     text=(
@@ -91,8 +93,21 @@ AB_PF525_SCREEN = Screen(
     buttons=[
         Button(text="🔍 Поиск ошибки", payload="pf_525_fault_search"),
         Button(text="📋 Все ошибки", payload="pf_525_faults"),
-        Button(text="Параметры", payload="pf_525_parameters"),
+        Button(text="⚙️ Параметры", payload="pf_525_parameters"),
         Button(text="⬅ Назад", payload="ab_menu"),
+        Button(text="🏠 Главное меню", payload="main_menu"),
+    ],
+)
+
+PF_525_FAULT_INPUT_SCREEN = Screen(
+    title="pf_525_fault_input",
+    text=(
+        "🔍 Поиск ошибки PowerFlex 525\n\n"
+        "Введите код ошибки.\n"
+        "Например: F005"
+    ),
+    buttons=[
+        Button(text="⬅ Назад", payload="ab_pf525"),
         Button(text="🏠 Главное меню", payload="main_menu"),
     ],
 )
@@ -132,6 +147,7 @@ SCREENS = {
     "vfd_menu": VFD_SCREEN,
     "ab_menu": AB_MENU_SCREEN,
     "ab_pf525": AB_PF525_SCREEN,
+    "pf_525_fault_input": PF_525_FAULT_INPUT_SCREEN,
     "spare_parts_menu": SPARE_PARTS_SCREEN,
     "about_project": ABOUT_PROJECT,
     }
