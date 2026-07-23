@@ -124,6 +124,25 @@ SPARE_PARTS_SCREEN = Screen(
     ],
 )
 
+BODYMAKER_SPARE_PART_INPUT_SCREEN = Screen(
+    title="bodymaker_spare_part_input",
+    text=(
+        "🔍 Поиск запчастей Bodymaker\n\n"
+        "Введите название запчасти или его часть.\n"
+        "Например: датчик"
+    ),
+    buttons=[
+        Button(
+            text="⬅ Назад",
+            payload="spare_parts_menu",
+        ),
+        Button(
+            text="🏠 Главное меню",
+            payload="main_menu",
+        ),
+    ],
+)
+
 ABOUT_PROJECT = Screen(
     title="about_project",
     text=(
@@ -149,5 +168,6 @@ SCREENS = {
     "ab_pf525": AB_PF525_SCREEN,
     "pf_525_fault_input": PF_525_FAULT_INPUT_SCREEN,
     "spare_parts_menu": SPARE_PARTS_SCREEN,
+    "bodymaker_spare_part_input": BODYMAKER_SPARE_PART_INPUT_SCREEN,
     "about_project": ABOUT_PROJECT,
     }

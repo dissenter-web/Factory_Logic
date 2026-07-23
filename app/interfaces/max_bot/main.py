@@ -20,12 +20,23 @@ def main():
     model="pf525",
     data_type="faults",
     )
+
+    pf525_parameters = json_repository.load_vfd_data(
+        manufacturer="allen_bradley",
+        model="pf525",
+        data_type="parameters",
+        )
+    bodymaker_spare_parts = json_repository.load_spare_parts_data(
+    data_type="bm",
+    )
     
     handler = Handler(
         navigator=navigator,
         start_screen=START_SCREEN,
         user_state=user_state,
         faults=pf525_faults,
+        parameters=pf525_parameters,
+        spare_parts=bodymaker_spare_parts,
     )
 
     polling = Polling(

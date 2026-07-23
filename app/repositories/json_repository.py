@@ -15,5 +15,9 @@ def load_vfd_data(manufacturer, model, data_type):
         return json.load(file)
     
 def load_spare_parts_data(data_type):
-    with open(SPARE_PARTS_DIR / f"spare_parts_{data_type}.json", "r", encoding="utf-8") as file:
+    with open(
+        SPARE_PARTS_DIR / f"spare_parts_{data_type}.json",
+        "r",
+        encoding="utf-8",
+    ) as file:
         return json.load(file)
