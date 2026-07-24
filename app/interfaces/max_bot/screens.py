@@ -115,7 +115,8 @@ PF_525_FAULT_INPUT_SCREEN = Screen(
 SPARE_PARTS_SCREEN = Screen(
     title="spare_parts_menu",
     text=(
-        "Меню поиска запчастей.\n\n"
+        "Это демонстрационный раздел без привязки к реальному складу запчастей.\n\n"
+        "📦 Меню поиска запчастей.\n\n"
         "Выберите оборудование:\n"
     ),
     buttons=[
