@@ -77,7 +77,7 @@ AB_MENU_SCREEN = Screen(
         "Доступные модели приводов:\n"
     ),
     buttons=[
-        Button(text="PF-525", payload="ab_pf525"),
+        Button(text="• PowerFlex 525", payload="ab_pf525"),
         Button(text="⬅ Назад", payload="vfd_menu"),
         Button(text="🏠 Главное меню", payload="main_menu"),
     ],
@@ -92,8 +92,7 @@ AB_PF525_SCREEN = Screen(
     ),
     buttons=[
         Button(text="🔍 Поиск ошибки", payload="pf_525_fault_search"),
-        Button(text="📋 Все ошибки", payload="pf_525_faults"),
-        Button(text="⚙️ Параметры", payload="pf_525_parameters"),
+        Button(text="⚙️ Параметры быстрого запуска", payload="pf_525_parameters"),
         Button(text="⬅ Назад", payload="ab_menu"),
         Button(text="🏠 Главное меню", payload="main_menu"),
     ],
