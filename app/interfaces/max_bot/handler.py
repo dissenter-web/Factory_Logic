@@ -31,7 +31,7 @@ class Handler:
                     {
                         "action": "fault_search",
                         "manufacturer": "allen_bradley",
-                        "model": "pf_525",
+                        "model": "pf525",
                     },
                 )
 

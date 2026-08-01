@@ -152,8 +152,8 @@ ABOUT_PROJECT = Screen(
           "Версия: 0.2.0-alpha\n"
           "Статус: В активной разработке\n\n"
           "Разработчик: Dissenter\n\n"
-          "GitHub:\n"
-          "https://github.com/dissenter-web\n\n"
+          "Сайт:\n"
+          "https://dissenter.top\n\n"
           "© 2026 Factory Logic"
             ),
     buttons=[
