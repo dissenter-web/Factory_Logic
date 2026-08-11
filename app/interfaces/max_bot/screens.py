@@ -1,5 +1,9 @@
 from app.interfaces.max_bot.screen import Screen
 from app.interfaces.max_bot.button import Button
+from app.interfaces.max_bot.vfd_catalog import VFD_CATALOG
+from app.interfaces.max_bot.vfd_screens import (
+    make_model_menu_screen,
+)
 
 
 START_SCREEN = Screen(
@@ -70,46 +74,11 @@ VFD_SCREEN = Screen(
 )
 
 #Экраны AllenBradley
-AB_MENU_SCREEN = Screen(
-    title="ab_menu",
-    text=(
-        "Allen-Bradley\n\n"
-        "Доступные модели приводов:\n"
-    ),
-    buttons=[
-        Button(text="• PowerFlex 525", payload="ab_pf525"),
-        Button(text="⬅ Назад", payload="vfd_menu"),
-        Button(text="🏠 Главное меню", payload="main_menu"),
-    ],
+AB_MENU_SCREEN = make_model_menu_screen(
+    manufacturer_id="allen_bradley",
+    manufacturer_data=VFD_CATALOG["allen_bradley"],
 )
 
-#Экраны AllenBradley PowerFlex 525
-AB_PF525_SCREEN = Screen(
-    title="ab_pf525",
-    text=(
-        "PowerFlex 525\n\n"
-        "Выберите действие:\n"
-    ),
-    buttons=[
-        Button(text="🔍 Поиск ошибки", payload="pf_525_fault_search"),
-        Button(text="⚙️ Параметры быстрого запуска", payload="pf_525_parameters"),
-        Button(text="⬅ Назад", payload="ab_menu"),
-        Button(text="🏠 Главное меню", payload="main_menu"),
-    ],
-)
-
-PF_525_FAULT_INPUT_SCREEN = Screen(
-    title="pf_525_fault_input",
-    text=(
-        "🔍 Поиск ошибки PowerFlex 525\n\n"
-        "Введите код ошибки.\n"
-        "Например: F005"
-    ),
-    buttons=[
-        Button(text="⬅ Назад", payload="ab_pf525"),
-        Button(text="🏠 Главное меню", payload="main_menu"),
-    ],
-)
 
 SPARE_PARTS_SCREEN = Screen(
     title="spare_parts_menu",
@@ -165,8 +134,6 @@ SCREENS = {
     "main_menu": MAIN_SCREEN,
     "vfd_menu": VFD_SCREEN,
     "ab_menu": AB_MENU_SCREEN,
-    "ab_pf525": AB_PF525_SCREEN,
-    "pf_525_fault_input": PF_525_FAULT_INPUT_SCREEN,
     "spare_parts_menu": SPARE_PARTS_SCREEN,
     "bodymaker_spare_part_input": BODYMAKER_SPARE_PART_INPUT_SCREEN,
     "about_project": ABOUT_PROJECT,
