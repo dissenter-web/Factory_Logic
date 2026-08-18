@@ -1,7 +1,6 @@
 VFD_CATALOG = {
     "allen_bradley": {
         "name": "Allen-Bradley",
-        "menu_payload": "ab_menu",
         "models": {
             "pf525": {
                 "name": "PowerFlex 525",

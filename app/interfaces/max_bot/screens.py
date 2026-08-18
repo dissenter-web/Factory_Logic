@@ -2,7 +2,7 @@ from app.interfaces.max_bot.screen import Screen
 from app.interfaces.max_bot.button import Button
 from app.interfaces.max_bot.vfd_catalog import VFD_CATALOG
 from app.interfaces.max_bot.vfd_screens import (
-    make_model_menu_screen,
+    make_vfd_menu_screen,
 )
 
 
@@ -56,29 +56,9 @@ MAIN_SCREEN = Screen(
     ],
 )
 
-VFD_SCREEN = Screen(
-    title="vfd_menu",
-    text=(
-        "⚡ Частотные приводы\n\n"
-        "Выберите производителя оборудования.\n\n"
-        "Доступные производители:\n"
-    ),
-    buttons=[
-        Button(text="• Allen-Bradley", payload="ab_menu"),
-        Button(text="• ABB", payload="abb_menu"),
-        Button(text="• SEW-EURODRIVE", payload="sew_menu"),
-        Button(text="• Control Techniques", payload="ct_menu"),
-        Button(text="• HPMont", payload="hpmont_menu"),
-        Button(text="🏠 Главное меню", payload="main_menu"),
-    ],
+VFD_SCREEN = make_vfd_menu_screen(
+    vfd_catalog=VFD_CATALOG,
 )
-
-#Экраны AllenBradley
-AB_MENU_SCREEN = make_model_menu_screen(
-    manufacturer_id="allen_bradley",
-    manufacturer_data=VFD_CATALOG["allen_bradley"],
-)
-
 
 SPARE_PARTS_SCREEN = Screen(
     title="spare_parts_menu",
@@ -133,7 +113,6 @@ ABOUT_PROJECT = Screen(
 SCREENS = {
     "main_menu": MAIN_SCREEN,
     "vfd_menu": VFD_SCREEN,
-    "ab_menu": AB_MENU_SCREEN,
     "spare_parts_menu": SPARE_PARTS_SCREEN,
     "bodymaker_spare_part_input": BODYMAKER_SPARE_PART_INPUT_SCREEN,
     "about_project": ABOUT_PROJECT,

@@ -7,6 +7,7 @@ from app.interfaces.max_bot.button import Button
 from app.interfaces.max_bot.screen import Screen
 from app.interfaces.max_bot.vfd_catalog import VFD_CATALOG
 from app.interfaces.max_bot.vfd_screens import (
+    make_model_menu_screen,
     make_fault_input_screen,
     make_vfd_actions_screen,
 )
@@ -60,6 +61,32 @@ class Handler:
             model_data,
         )
 
+    def _handle_manufacturer_selection(
+        self,
+        payload,
+    ):
+        payload_parts = payload.split(":")
+
+        if len(payload_parts) != 2:
+            return self.navigator.fallback_screen
+
+        action, manufacturer_id = payload_parts
+
+        if action != "vfd_manufacturer":
+            return self.navigator.fallback_screen
+
+        manufacturer_data = VFD_CATALOG.get(
+            manufacturer_id
+        )
+
+        if manufacturer_data is None:
+            return self.navigator.fallback_screen
+
+        return make_model_menu_screen(
+            manufacturer_id=manufacturer_id,
+            manufacturer_data=manufacturer_data,
+        )
+
     def _handle_vfd_selection(self, user_id, payload):
         payload_parts = payload.split(":")
 
@@ -95,6 +122,7 @@ class Handler:
         )
 
         return make_vfd_actions_screen(
+            manufacturer_id=manufacturer_id,
             manufacturer_data=manufacturer_data,
             model_data=model_data,
         )
@@ -160,6 +188,7 @@ class Handler:
         state, manufacturer_data, model_data = context
 
         return make_vfd_actions_screen(
+            manufacturer_id=state["manufacturer"],
             manufacturer_data=manufacturer_data,
             model_data=model_data,
         )
@@ -259,6 +288,15 @@ class Handler:
         if update_type == "message_callback":
             payload = update["callback"]["payload"]
             user_id = update["callback"]["user"]["user_id"]
+
+            if payload.startswith(
+                "vfd_manufacturer:"
+            ):
+                return (
+                    self._handle_manufacturer_selection(
+                        payload=payload,
+                    )
+                )
 
             if payload.startswith("vfd_select:"):
                 return self._handle_vfd_selection(
