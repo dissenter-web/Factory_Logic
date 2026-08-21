@@ -12,4 +12,14 @@ VFD_CATALOG = {
             },
         },
     },
+
+    "abb": {
+            "name": "ABB",
+            "models": {
+                "acs800": {
+                    "name": "ACS 800",
+                    "fault_example": "7110",
+                },
+            },
+        },
 }
