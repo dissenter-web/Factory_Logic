@@ -11,7 +11,6 @@ def format_fault_not_found(fault_code):
     return (
         f"❌ Ошибка {code} не найдена.\n\n"
         "Проверьте код и попробуйте ещё раз.\n"
-        "Пример: f005"
     )
 
 
