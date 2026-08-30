@@ -1,0 +1,155 @@
+{
+  "title": "ABB ACS580 — быстрый запуск",
+  "sections": [
+    {
+      "title": "Двигатель",
+      "parameters": [
+        {
+          "code": "99.03",
+          "name": "Тип двигателя",
+          "value": "0=асинхронный; 1=PM; 2=SynRM."
+        },
+        {
+          "code": "99.04",
+          "name": "Режим управления",
+          "value": "0=векторный; 1=скалярный (default). Векторный требует ID run."
+        },
+        {
+          "code": "99.06",
+          "name": "Номин. ток",
+          "value": "По шильдику, 0–6400 A."
+        },
+        {
+          "code": "99.07",
+          "name": "Номин. напряжение",
+          "value": "По шильдику, 0–960 V."
+        },
+        {
+          "code": "99.08",
+          "name": "Номин. частота",
+          "value": "По шильдику, 0–500 Hz; default 50 Hz."
+        },
+        {
+          "code": "99.09",
+          "name": "Номин. скорость",
+          "value": "По шильдику, 0–30000 rpm."
+        },
+        {
+          "code": "99.10",
+          "name": "Номин. мощность",
+          "value": "По шильдику; при нескольких двигателях — сумма."
+        },
+        {
+          "code": "99.13",
+          "name": "ID run",
+          "value": "0=Нет; выбрать тип ID run для следующего пуска."
+        }
+      ]
+    },
+    {
+      "title": "Start/Stop",
+      "parameters": [
+        {
+          "code": "20.01",
+          "name": "Команды Внешн1",
+          "value": "Start/Stop/Direction: 1=Вх1 Start; 2=Вх1 Start+Вх2 Dir (default); 3=Fwd/Rev; 4=3-wire Start/Stop; 5=3-wire Start/Stop+Dir."
+        },
+        {
+          "code": "20.03",
+          "name": "Вход 1 Внешн1",
+          "value": "Источник команды 1; default DI1."
+        },
+        {
+          "code": "20.04",
+          "name": "Вход 2 Внешн1",
+          "value": "Источник команды 2; default DI2."
+        },
+        {
+          "code": "21.03",
+          "name": "Режим останова",
+          "value": "0=Coast (default); 1=Ramp; 2=Torque limit (vector)."
+        },
+        {
+          "code": "31.11",
+          "name": "Fault Reset",
+          "value": "Источник внешнего сброса fault; 0→1 = reset."
+        }
+      ]
+    },
+    {
+      "title": "Speed Reference",
+      "parameters": [
+        {
+          "code": "22.11",
+          "name": "Speed Ref 1",
+          "value": "Источник скорости для Внешн1 (vector); default масштаб. AI1."
+        },
+        {
+          "code": "28.11",
+          "name": "Frequency Ref 1",
+          "value": "Источник частоты для Внешн1 (scalar); default масштаб. AI1."
+        },
+        {
+          "code": "12.15",
+          "name": "AI1 units",
+          "value": "Выбор единиц AI1: V или mA."
+        },
+        {
+          "code": "12.17–12.20",
+          "name": "AI1 scaling",
+          "value": "Min/Max входа и внутреннее значение для min/max AI1."
+        }
+      ]
+    },
+    {
+      "title": "Accel/Decel",
+      "parameters": [
+        {
+          "code": "23.12/23.13",
+          "name": "Accel/Decel speed",
+          "value": "Vector: 0–1800 s; default 5 s / 5 s."
+        },
+        {
+          "code": "28.72/28.73",
+          "name": "Accel/Decel freq",
+          "value": "Scalar: 0–1800 s; default 20 s / 20 s."
+        }
+      ]
+    },
+    {
+      "title": "Limits",
+      "parameters": [
+        {
+          "code": "30.11/30.12",
+          "name": "Min/Max speed",
+          "value": "Vector: пределы скорости, ±30000 rpm."
+        },
+        {
+          "code": "30.13/30.14",
+          "name": "Min/Max freq",
+          "value": "Scalar: −500…500 Hz; default −50/50 Hz (60-Hz сеть: −60/60)."
+        },
+        {
+          "code": "30.17",
+          "name": "Max current",
+          "value": "Макс. ток двигателя, 0–30000 A."
+        }
+      ]
+    },
+    {
+      "title": "Brake / Reset",
+      "parameters": [
+        {
+          "code": "43.06",
+          "name": "Brake chopper",
+          "value": "0=off; 1=on+thermal model; 2=on без thermal model; 3=overvoltage peak protection. При 1/2 отключить 30.30."
+        },
+        {
+          "code": "96.06",
+          "name": "Factory reset",
+          "value": "8=восстановить defaults (без motor data/ID и ряда настроек); 62=очистить все редактируемые параметры с исключениями."
+        }
+      ]
+    }
+  ]
+}

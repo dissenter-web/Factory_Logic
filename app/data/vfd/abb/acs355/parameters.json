@@ -1,0 +1,145 @@
+{
+  "title": "ABB ACS355 — быстрый запуск",
+  "sections": [
+    {
+      "title": "Двигатель",
+      "parameters": [
+        {
+          "code": "9903",
+          "name": "Тип двигателя",
+          "value": "1=асинхр.; 2=PMSM."
+        },
+        {
+          "code": "9904",
+          "name": "Режим управления",
+          "value": "1=Vector speed; 2=Vector torque; 3=Scalar freq. По умолчанию в списке параметров: 3."
+        },
+        {
+          "code": "9905",
+          "name": "Ном. напряжение",
+          "value": "По шильдику; PMSM: back-EMF при ном. скорости."
+        },
+        {
+          "code": "9906",
+          "name": "Ном. ток",
+          "value": "По шильдику; 0.2–2.0×I2N."
+        },
+        {
+          "code": "9907",
+          "name": "Ном. частота",
+          "value": "0–599 Hz; E default 50, U 60 Hz."
+        },
+        {
+          "code": "9908",
+          "name": "Ном. скорость",
+          "value": "50–30000 rpm; точно по шильдику."
+        },
+        {
+          "code": "9909",
+          "name": "Ном. мощность",
+          "value": "По шильдику; 0.2–3.0×PN."
+        },
+        {
+          "code": "9910",
+          "name": "ID run",
+          "value": "0=off/magnetization; 1=ID run. Для точного vector-control."
+        },
+        {
+          "code": "9914",
+          "name": "Инверсия фаз",
+          "value": "0=нет; 1=да, меняет направление без перестановки фаз."
+        }
+      ]
+    },
+    {
+      "title": "Start/Stop",
+      "parameters": [
+        {
+          "code": "1001",
+          "name": "Команды EXT1",
+          "value": "Источник/логика Start/Stop/Dir. 1=DI1 2-wire; 2=DI1 Run+DI2 Dir (default); 3=3-wire Start/Stop; 4=3-wire + Dir; 8=panel. Fieldbus не включен здесь."
+        },
+        {
+          "code": "1003",
+          "name": "Направление",
+          "value": "1=Fwd; 2=Rev; 3=Fwd/Rev (default)."
+        },
+        {
+          "code": "2102",
+          "name": "Stop mode",
+          "value": "1=Coast (default); 2=Ramp."
+        }
+      ]
+    },
+    {
+      "title": "Speed Reference",
+      "parameters": [
+        {
+          "code": "1103",
+          "name": "REF1 source",
+          "value": "0=panel; 1=AI1 (default); 2=AI2; 5/6=DI up/down; 20/21=panel ref reset/retain. Отдельно от Start/Stop."
+        },
+        {
+          "code": "1104/1105",
+          "name": "REF1 min/max",
+          "value": "Масштаб внешнего задания 1; единицы rpm или Hz по 9904."
+        },
+        {
+          "code": "1301/1302",
+          "name": "AI1 min/max",
+          "value": "Масштаб AI1; default 0%/100%. Переключатель S1 выбирает V или mA."
+        }
+      ]
+    },
+    {
+      "title": "Limits / ramps",
+      "parameters": [
+        {
+          "code": "2001/2002",
+          "name": "Min/Max speed",
+          "value": "Vector: Min/Max rpm; default 0 / 1500(E),1800(U) rpm."
+        },
+        {
+          "code": "2007/2008",
+          "name": "Min/Max freq",
+          "value": "Scalar: Min/Max Hz; default 0 / 50(E),60(U) Hz."
+        },
+        {
+          "code": "2202/2203",
+          "name": "Accel/Decel 1",
+          "value": "0–1800 s; default 5.0 s / 5.0 s."
+        },
+        {
+          "code": "2003",
+          "name": "Max current",
+          "value": "Макс. ток двигателя; default 1.8×I2N."
+        }
+      ]
+    },
+    {
+      "title": "Protection / reset",
+      "parameters": [
+        {
+          "code": "3005",
+          "name": "Motor thermal",
+          "value": "0=off; 1=fault (default); 2=warning. Модель: 3006–3009."
+        },
+        {
+          "code": "1613",
+          "name": "Fault reset",
+          "value": "0=default/no reset; 1=reset current fault, затем авто→0."
+        },
+        {
+          "code": "3101/3102",
+          "name": "Auto reset",
+          "value": "0–5 attempts / 1–600 s window; 3101 default 0 (off)."
+        },
+        {
+          "code": "9902",
+          "name": "Macro / defaults",
+          "value": "1=ABB Standard, 2=3-wire, 3=Sequential, 4=Motor Pot, 5=Hand/Auto, 6=PID, 8=Torque. Для восстановления default: выбрать другой macro, сохранить, вернуть исходный и сохранить."
+        }
+      ]
+    }
+  ]
+}

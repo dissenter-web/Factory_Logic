@@ -1,0 +1,180 @@
+{
+  "title": "ABB ACS380 — быстрый запуск",
+  "sections": [
+    {
+      "title": "Двигатель",
+      "parameters": [
+        {
+          "code": "99.03",
+          "name": "Motor type",
+          "value": "AsynM / PMSM / SynRM."
+        },
+        {
+          "code": "99.04",
+          "name": "Motor control mode",
+          "value": "Scalar или Vector. Vector: speed control; Scalar: frequency control."
+        },
+        {
+          "code": "99.06",
+          "name": "Motor nominal current",
+          "value": "Ток с шильдика, 0…6400 A."
+        },
+        {
+          "code": "99.07",
+          "name": "Motor nominal voltage",
+          "value": "Напряжение с шильдика, 0…800 V."
+        },
+        {
+          "code": "99.08",
+          "name": "Motor nominal frequency",
+          "value": "Частота с шильдика, 0…500 Hz."
+        },
+        {
+          "code": "99.09",
+          "name": "Motor nominal speed",
+          "value": "Скорость с шильдика, 0…30000 rpm."
+        },
+        {
+          "code": "99.10",
+          "name": "Motor nominal power",
+          "value": "Мощность с шильдика, kW/hp."
+        },
+        {
+          "code": "99.11",
+          "name": "Motor nominal cos Φ",
+          "value": "cosφ, 0…1; для более точной модели AsynM."
+        },
+        {
+          "code": "99.13",
+          "name": "ID run requested",
+          "value": "ID run: None/Normal/Reduced/Standstill/Autophasing/Advanced; после изменения 99.04, 99.06…99.12 повторить."
+        }
+      ]
+    },
+    {
+      "title": "Start/Stop",
+      "parameters": [
+        {
+          "code": "20.01",
+          "name": "Ext1 commands",
+          "value": "Логика Start/Stop/Dir: 1=In1 Start; 2=In1 Start+In2 Dir; 3=Start Fwd/Rev; 4/5/6=3-wire варианты; 11=Panel."
+        },
+        {
+          "code": "20.03",
+          "name": "Ext1 in1 source",
+          "value": "Источник команды In1; ABB standard default DI1."
+        },
+        {
+          "code": "20.04",
+          "name": "Ext1 in2 source",
+          "value": "Источник In2; ABB standard default DI2."
+        },
+        {
+          "code": "21.03",
+          "name": "Stop mode",
+          "value": "0=Coast; 1=Ramp (default); 2=Torque limit, только Vector."
+        }
+      ]
+    },
+    {
+      "title": "Speed Reference",
+      "parameters": [
+        {
+          "code": "22.11",
+          "name": "Ext1 speed ref1",
+          "value": "Источник Speed Ref1 в Vector; ABB standard: AI1 scaled. Для внутреннего задания выбрать Integrated panel и задать ref с панели."
+        },
+        {
+          "code": "22.26",
+          "name": "Constant speed 1",
+          "value": "Preset speed 1; default 300 rpm (50 Hz supply setting)."
+        }
+      ]
+    },
+    {
+      "title": "Frequency Reference",
+      "parameters": [
+        {
+          "code": "28.11",
+          "name": "Ext1 frequency ref1",
+          "value": "Источник Freq Ref1 в Scalar; ABB standard: AI1 scaled. Для внутреннего задания выбрать Integrated panel."
+        },
+        {
+          "code": "28.26",
+          "name": "Constant frequency 1",
+          "value": "Preset freq 1; default 5 Hz (50 Hz supply setting)."
+        }
+      ]
+    },
+    {
+      "title": "Analog AI1",
+      "parameters": [
+        {
+          "code": "12.15",
+          "name": "AI1 unit selection",
+          "value": "Единицы AI1: V/mA и др.; согласовать с физическим переключателем входа."
+        },
+        {
+          "code": "12.17/12.18",
+          "name": "AI1 min/max",
+          "value": "Мин/макс входного сигнала AI1 (типично 0/2…10 V или 0/4…20 mA)."
+        },
+        {
+          "code": "12.20",
+          "name": "AI1 scaled at AI1 max",
+          "value": "Внутреннее значение при AI1 max; default 50.000 для 50 Hz setting."
+        }
+      ]
+    },
+    {
+      "title": "Limits/Ramps",
+      "parameters": [
+        {
+          "code": "30.11/30.12",
+          "name": "Min/Max speed",
+          "value": "Vector: allowed speed; defaults -1500/+1500 rpm (50 Hz setting)."
+        },
+        {
+          "code": "30.13/30.14",
+          "name": "Min/Max frequency",
+          "value": "Scalar: allowed frequency; defaults -50/+50 Hz (50 Hz setting)."
+        },
+        {
+          "code": "23.12/23.13",
+          "name": "Accel/Decel time 1",
+          "value": "Vector ramps; время 0→46.01 Speed scaling и обратно."
+        },
+        {
+          "code": "28.72/28.73",
+          "name": "Freq Accel/Decel time 1",
+          "value": "Scalar ramps; default 3.000 s."
+        },
+        {
+          "code": "30.17",
+          "name": "Maximum current",
+          "value": "Макс. разрешённый ток двигателя."
+        }
+      ]
+    },
+    {
+      "title": "Fault/Reset/Brake",
+      "parameters": [
+        {
+          "code": "31.11",
+          "name": "Fault reset selection",
+          "value": "Источник внешнего Fault Reset; default Not used."
+        },
+        {
+          "code": "43.06",
+          "name": "Brake chopper enable",
+          "value": "Brake chopper control; default Disabled."
+        },
+        {
+          "code": "96.06",
+          "name": "Parameter restore",
+          "value": "Restore параметров к исходным настройкам control program."
+        }
+      ]
+    }
+  ]
+}

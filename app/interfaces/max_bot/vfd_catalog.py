@@ -28,6 +28,22 @@ VFD_CATALOG = {
                     "name": "ACS 800",
                     "fault_example": "7110",
                 },
+                "acs880": {
+                    "name": "ACS 880",
+                    "fault_example": "2310",
+                },
+                "acs580": {
+                    "name": "ACS 580",
+                    "fault_example": "5080",
+                },
+                "acs380": {
+                    "name": "ACS 380",
+                    "fault_example": "3130",
+                },
+                "acs355": {
+                    "name": "ACS 355",
+                    "fault_example": "0010",
+                },
             },
         },
 }
