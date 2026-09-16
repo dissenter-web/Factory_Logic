@@ -15,12 +15,12 @@ START_SCREEN = Screen(
           "• ошибки и параметры частотных приводов;\n"
           #"• техническую документацию;\n"
           #"• стандартные рабочие процедуры;\n"
-          "• информацию по запасным частям.\n\n"
+          "• информацию по запасным частям.(Demo)\n\n"
           "👇 Выберите нужный раздел.\n\n"
             ),
     buttons=[
         Button(text="⚡ Частотные приводы", payload="vfd_menu"),
-        Button(text="📦 Запчасти", payload="spare_parts_menu"),
+        Button(text="📦 Запчасти(Demo)", payload="spare_parts_menu"),
         Button(text="ℹ️ О проекте", payload="about_project"),
     ],
 )
@@ -45,13 +45,13 @@ MAIN_SCREEN = Screen(
         "Ошибки и параметры "
         "по преобразователям частоты.\n\n"
         "📦 Запчасти\n"
-        "Поиск запасных частей по названию\n\n"
+        "Поиск запасных частей по названию(Demo)\n\n"
         "ℹ️ О проекте\n"
         "Версия системы и служебная информация."
     ),
     buttons=[
         Button(text="⚡ Частотные приводы", payload="vfd_menu"),
-        Button(text="📦 Запчасти", payload="spare_parts_menu"),
+        Button(text="📦 Запчасти(Demo)", payload="spare_parts_menu"),
         Button(text="ℹ️ О проекте", payload="about_project"),
     ],
 )
