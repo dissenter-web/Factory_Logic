@@ -1,0 +1,170 @@
+{
+  "title": "HPMONT HD3N — быстрый запуск",
+  "sections": [
+    {
+      "title": "Двигатель",
+      "parameters": [
+        {
+          "code": "F08.00",
+          "name": "Rated power of motor",
+          "value": "0.2–500.0 kW; с шильдика."
+        },
+        {
+          "code": "F08.01",
+          "name": "Rated voltage of motor",
+          "value": "0–999 V; с шильдика."
+        },
+        {
+          "code": "F08.02",
+          "name": "Rated current of motor",
+          "value": "0.1–2500.0 A; с шильдика."
+        },
+        {
+          "code": "F08.03",
+          "name": "Rated frequency of motor",
+          "value": "1.0–400.0 Hz; default 50.0 Hz."
+        },
+        {
+          "code": "F08.04",
+          "name": "Rated Rpm of motor",
+          "value": "1–24000 rpm; с шильдика."
+        },
+        {
+          "code": "F08.06",
+          "name": "Parameter auto-tuning",
+          "value": "0=no action; 1=stationary; 2=rotary; 3=stator resistance test."
+        }
+      ]
+    },
+    {
+      "title": "Start/Stop",
+      "parameters": [
+        {
+          "code": "F00.11",
+          "name": "Command setting channel",
+          "value": "0=keypad; 1=terminal; 2=SCI."
+        },
+        {
+          "code": "F15.16",
+          "name": "FWD/REV running mode",
+          "value": "0=2-wire 1; 1=2-wire 2; 2=3-wire 1; 3=3-wire 2."
+        },
+        {
+          "code": "F00.18",
+          "name": "Reverse",
+          "value": "0=permitted; 1=prohibited."
+        },
+        {
+          "code": "F02.13",
+          "name": "Stop modes at speed control",
+          "value": "0=Dec stop; 1=coast; 2=Dec + DC brake."
+        }
+      ]
+    },
+    {
+      "title": "Speed Reference",
+      "parameters": [
+        {
+          "code": "F00.10",
+          "name": "Frequency setting channels",
+          "value": "0=keypad; 1=terminal; 2=SCI; 3=analogue; 4=DI6 pulse; 6/7=AI1/AI2; 10=potentiometer (LED keypad)."
+        },
+        {
+          "code": "F00.13",
+          "name": "Starting frequency digital setting",
+          "value": "0.00 Hz–upper limit; default 50.00 Hz."
+        },
+        {
+          "code": "F00.06",
+          "name": "Max. output frequency",
+          "value": "50.00–400.00 Hz; default 50.00 Hz."
+        },
+        {
+          "code": "F00.08",
+          "name": "Upper limit running frequency",
+          "value": "0.00 Hz–F00.06; default 50.00 Hz."
+        },
+        {
+          "code": "F00.09",
+          "name": "Lower limit running frequency",
+          "value": "0.00 Hz–F00.08; default 0.00 Hz."
+        }
+      ]
+    },
+    {
+      "title": "Accel/Decel",
+      "parameters": [
+        {
+          "code": "F03.01",
+          "name": "Acc. time 1",
+          "value": "0.0–6000.0 s."
+        },
+        {
+          "code": "F03.02",
+          "name": "Dec. time 1",
+          "value": "0.0–6000.0 s."
+        }
+      ]
+    },
+    {
+      "title": "Analog Input",
+      "parameters": [
+        {
+          "code": "F16.01",
+          "name": "AI1 function",
+          "value": "2=frequency setting."
+        },
+        {
+          "code": "F16.02",
+          "name": "AI2 function",
+          "value": "2=frequency setting; для 4–20 mA использовать AI2."
+        },
+        {
+          "code": "F16.08/F16.09",
+          "name": "AI2 bias/gain",
+          "value": "bias −100…+100%, gain 0.00–10.00. Для 4–20 mA→0–50 Hz: −20.0%, 1.20."
+        }
+      ]
+    },
+    {
+      "title": "Protection/Brake",
+      "parameters": [
+        {
+          "code": "F19.21",
+          "name": "Auto current limit threshold",
+          "value": "20.0–200.0%; default 150.0%."
+        },
+        {
+          "code": "F20.00",
+          "name": "Overload protection",
+          "value": "Разряды задают stop/alarm, motor/inverter threshold/type/protection; default 00000."
+        },
+        {
+          "code": "F19.24",
+          "name": "Action voltage of braking unit",
+          "value": "630–750 V; default 680 V."
+        },
+        {
+          "code": "F19.25",
+          "name": "Flux braking",
+          "value": "0=disabled; 1=enable."
+        }
+      ]
+    },
+    {
+      "title": "Reset",
+      "parameters": [
+        {
+          "code": "F01.02",
+          "name": "Function code parameter initialization",
+          "value": "1=factory settings; 4=clear fault information."
+        },
+        {
+          "code": "DI function 16",
+          "name": "External fault reset",
+          "value": "Назначить DI функцию 16 для внешнего reset; также reset с keypad/SCI/power cycle."
+        }
+      ]
+    }
+  ]
+}

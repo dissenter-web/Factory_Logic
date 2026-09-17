@@ -46,4 +46,14 @@ VFD_CATALOG = {
                 },
             },
         },
+
+        "hpmont": {
+                "name": "HPMONT",
+                "models": {
+                    "hd3n": {
+                        "name": "HD3N",
+                        "fault_example": "E0003",
+                    },
+            },
+        },
 }
