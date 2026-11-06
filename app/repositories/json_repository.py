@@ -9,6 +9,8 @@ VFD_DATA_DIR = DATA_ROOT / "vfd"
 
 SPARE_PARTS_DIR = DATA_ROOT / "spare_parts"
 
+PINOUTS_DIR = DATA_ROOT / "pinouts"
+
 def load_vfd_data(manufacturer, model, data_type):
     data_dir = VFD_DATA_DIR / manufacturer / model
     with open(data_dir / f"{data_type}.json", "r", encoding="utf-8") as file:
@@ -21,3 +23,7 @@ def load_spare_parts_data(data_type):
         encoding="utf-8",
     ) as file:
         return json.load(file)
+
+def load_pinout_image(connector: str) -> bytes:
+    image_path = PINOUTS_DIR / f"{connector}.png"
+    return image_path.read_bytes()

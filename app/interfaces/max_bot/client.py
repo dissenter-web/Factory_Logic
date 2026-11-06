@@ -37,6 +37,33 @@ class BotClient:
 
         response.raise_for_status()
         return response.json()
+
+    def get_image_upload_url(self):
+        response = requests.post(
+            f"{self.base_url}/uploads",
+            headers=self.headers,
+            params={"type": "image"},
+            timeout=10,
+        )
+
+        response.raise_for_status()
+
+        return response.json()["url"]
+
+    def upload_image(self, image_bytes: bytes):
+        upload_url = self.get_image_upload_url()
+
+        response = requests.post(
+            upload_url,
+            files={
+                "data": ("pinout.png", image_bytes, "image/png")
+            },
+            timeout=30,
+        )
+
+        response.raise_for_status()
+
+        return response.json()
     
     def answer_callback(self, callback_id, message):
         response = requests.post(

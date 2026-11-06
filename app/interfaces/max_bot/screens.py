@@ -13,6 +13,7 @@ START_SCREEN = Screen(
           "Справочник для инженеров группы по ремонту электрооборудования.\n\n"
           "Система помогает быстро находить:\n"
           "• ошибки и параметры частотных приводов;\n"
+          "• распиновки промышленных разъёмов;\n"
           #"• техническую документацию;\n"
           #"• стандартные рабочие процедуры;\n"
           "• информацию по запасным частям.(Demo)\n\n"
@@ -20,6 +21,7 @@ START_SCREEN = Screen(
             ),
     buttons=[
         Button(text="⚡ Частотные приводы", payload="vfd_menu"),
+        Button(text="🔌 Распиновки", payload="pinouts_menu"),
         Button(text="📦 Запчасти(Demo)", payload="spare_parts_menu"),
         Button(text="ℹ️ О проекте", payload="about_project"),
     ],
@@ -44,6 +46,8 @@ MAIN_SCREEN = Screen(
         "⚡ Частотные приводы\n"
         "Ошибки и параметры "
         "по преобразователям частоты.\n\n"
+        "🔌 Распиновки\n"
+        "Схемы подключения для промышленных разъёмов.\n\n"
         "📦 Запчасти\n"
         "Поиск запасных частей по названию(Demo)\n\n"
         "ℹ️ О проекте\n"
@@ -51,6 +55,7 @@ MAIN_SCREEN = Screen(
     ),
     buttons=[
         Button(text="⚡ Частотные приводы", payload="vfd_menu"),
+        Button(text="🔌 Распиновки", payload="pinouts_menu"),
         Button(text="📦 Запчасти(Demo)", payload="spare_parts_menu"),
         Button(text="ℹ️ О проекте", payload="about_project"),
     ],
@@ -58,6 +63,19 @@ MAIN_SCREEN = Screen(
 
 VFD_SCREEN = make_vfd_menu_screen(
     vfd_catalog=VFD_CATALOG,
+)
+
+PINOUTS_SCREEN = Screen(
+    title="pinouts_menu",
+    text=(
+        "🔌 Распиновки разъёмов\n\n"
+        "Выберите нужный разъём:"
+    ),
+    buttons=[
+        Button(text="RJ-45", payload="pinout_rj45"),
+        Button(text="M12", payload="pinout_m12"),
+        Button(text="🏠 Главное меню", payload="main_menu"),
+    ],
 )
 
 SPARE_PARTS_SCREEN = Screen(
@@ -110,10 +128,32 @@ ABOUT_PROJECT = Screen(
     ],
 )
 
+PINOUT_RJ45_SCREEN = Screen(
+    title="pinout_rj45",
+    text="🔌 Распиновка RJ-45 (T568A / T568B)",
+    buttons=[
+        Button(text="⬅ Назад", payload="pinouts_menu"),
+        Button(text="🏠 Главное меню", payload="main_menu"),
+    ],
+)
+
+
+PINOUT_M12_SCREEN = Screen(
+    title="pinout_m12",
+    text="🔌 Распиновка M12 A-coded (4 контакта)",
+    buttons=[
+        Button(text="⬅ Назад", payload="pinouts_menu"),
+        Button(text="🏠 Главное меню", payload="main_menu"),
+    ],
+)
+
 SCREENS = {
     "main_menu": MAIN_SCREEN,
     "vfd_menu": VFD_SCREEN,
     "spare_parts_menu": SPARE_PARTS_SCREEN,
     "bodymaker_spare_part_input": BODYMAKER_SPARE_PART_INPUT_SCREEN,
     "about_project": ABOUT_PROJECT,
+    "pinouts_menu": PINOUTS_SCREEN,
+    "pinout_rj45": PINOUT_RJ45_SCREEN,
+    "pinout_m12": PINOUT_M12_SCREEN,
     }
