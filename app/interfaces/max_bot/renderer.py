@@ -1,4 +1,4 @@
-def render_screen(screen):
+def render_screen(screen, image_token=None):
     buttons = []
 
     for button in screen.buttons:
@@ -12,14 +12,26 @@ def render_screen(screen):
             ]
         )
 
-    return {
-        "text": screen.text,
-        "attachments": [
+    attachments = [
+    {
+        "type": "inline_keyboard",
+        "payload": {
+            "buttons": buttons,
+        },
+    }
+]
+
+    if image_token is not None:
+        attachments.append(
             {
-                "type": "inline_keyboard",
+                "type": "image",
                 "payload": {
-                    "buttons": buttons,
+                    "token": image_token,
                 },
             }
-        ],
+        )
+
+    return {
+        "text": screen.text,
+        "attachments": attachments,
     }
